@@ -4,6 +4,11 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
@@ -67,13 +72,13 @@ public class OperacaoServlet extends HttpServlet {
 			response.sendRedirect("menu.jsp");
 		} else if (op.equals("credito")) {
 			// Utilizando o ENUM para definir como constante o nome da operação
-			opr.setTipoOpr(String.valueOf(TipoOpr.CREDITO));
+			opr.setTipoOperacao(TipoOpr.CREDITO);
 			saldo += Double.valueOf(valor);
 
 			contaNum.setSaldo(saldo);
 			dao.update(contaNum);
 		} else if (op.equals("debito")) {
-			opr.setTipoOpr(String.valueOf(TipoOpr.DEBITO));
+			opr.setTipoOperacao(TipoOpr.DEBITO);
 
 			saldo -= Double.valueOf(valor);
 			contaNum.setSaldo(saldo);

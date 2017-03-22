@@ -4,19 +4,16 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import BancoServlet.TipoOpr;
+
 
 
 public class Operacao {
-	List<Operacao> ListOperacao = new ArrayList<>();
+	
 	private SimpleDateFormat data;
 	private Double valor;
-	private String tipoOperacao;
-	public List<Operacao> getListOperacao() {
-		return ListOperacao;
-	}
-	public void setListOperacao(List<Operacao> listOperacao) {
-		ListOperacao = listOperacao;
-	}
+	private TipoOpr tipoOperacao;
+	
 	public SimpleDateFormat getData() {
 		return data;
 	}
@@ -29,12 +26,11 @@ public class Operacao {
 	public void setValor(Double valor) {
 		this.valor = valor;
 	}
-	public String getTipoOperacao() {
+	public TipoOpr getTipoOperacao() {
 		return tipoOperacao;
 	}
-	public void setTipoOperacao(String tipoOperacao) {
+	public void setTipoOperacao(TipoOpr tipoOperacao) {
 		this.tipoOperacao = tipoOperacao;
-	
 	}
-
+	
 }

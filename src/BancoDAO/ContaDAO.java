@@ -9,4 +9,6 @@ public interface ContaDAO {
 
 	Conta porNumero(Long numero);
 
+	Conta getConta(String conta);
+
 }

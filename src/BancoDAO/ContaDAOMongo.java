@@ -39,4 +39,10 @@ public class ContaDAOMongo implements ContaDAO{
 		return conta().findOne("{numero: #}", conta).as(Conta.class);
 }
 
+	@Override
+	public Conta porNumero(Long numero) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

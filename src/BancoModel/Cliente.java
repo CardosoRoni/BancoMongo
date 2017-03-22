@@ -2,6 +2,10 @@ package BancoModel;
 
 public class Cliente {
 	private Conta conta;
+	
+	public Cliente() {
+		
+	}
 	public Cliente(Conta conta, String nome, Integer cpf, Double renda) {
 		super();
 		this.conta = conta;
