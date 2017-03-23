@@ -1,17 +1,13 @@
 package BancoDAO;
 
-
-
 import org.jongo.Jongo;
 import org.jongo.MongoCollection;
 
 import com.mongodb.DB;
 
 import BancoModel.Conta;
-import BancoModel.Operacao;
 
-public class ContaDAOMongo implements ContaDAO{
-	
+public class ContaDAOMongo implements ContaDAO {
 
 	private final DB db;
 
@@ -37,7 +33,7 @@ public class ContaDAOMongo implements ContaDAO{
 	@Override
 	public Conta getConta(Long conta) {
 		return conta().findOne("{numero: #}", conta).as(Conta.class);
-}
+	}
 
 	@Override
 	public Conta porNumero(Long numero) {

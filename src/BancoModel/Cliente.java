@@ -6,7 +6,7 @@ public class Cliente {
 	public Cliente() {
 		
 	}
-	public Cliente(Conta conta, String nome, String cpf, Double renda) {
+	public Cliente(Conta conta, String nome, String cpf, double renda) {
 		super();
 		this.conta = conta;
 		this.nome = nome;

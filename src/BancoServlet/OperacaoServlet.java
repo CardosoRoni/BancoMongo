@@ -1,7 +1,6 @@
 package BancoServlet;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -18,7 +17,6 @@ import BancoDAO.ContaDAO;
 import BancoDAO.ContaDAOMongo;
 import BancoModel.Conta;
 import BancoModel.Operacao;
-import BancoModel.tipoOperacao;
 
 
 

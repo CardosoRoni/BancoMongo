@@ -7,7 +7,8 @@
 <title>Dados Cadastrais</title>
 </head>
 <body>
-	<script type="text/javascript">
+
+<script type="text/javascript">
 		function validarDados() {
 			var f = document.cadastro;
 			if (f.numeroConta.value == "" && f.nome.value == ""
@@ -15,20 +16,25 @@
 					&& f.senha.value == "") {
 				alert("Preencha os Campos");
 				return false;
-
 			}
 			return true;
 		}
+		}
 	</script>
-
 	<form action="CadastroServlet" method="post">
-		<b> <br />Digite o número da sua conta: <input type="text"
-			name="numeroConta" /> <br /> <br />Digite seu nome completo: <input
-			type="text" name="nome" /> <br /> <br />Digite o número do seu CPF: <input
-			type="text" name="cpf"> <br /> <br />Digite sua Renda mensal:
-			<input type="text" name="renda"> <br /> <br />Crie uma senha:
-			<input type="text" name="senha"> <br />
-		</b> <br /> <input type="submit" value="Confirma">
+	<b>
+    <br/>Digite o número da sua conta: <input type="text"name="numeroConta"/>
+    <br/> 
+    <br/>Digite seu nome completo: <input type="text"name="nome"/>
+    <br/> 
+    <br/>Digite o número do seu CPF: <input type="text"name="cpf">
+    <br/> 
+    <br/>Digite sua renda mensal: <input type="text"name="renda">
+    <br/>
+    <br/>Crie uma senha: <input type="text"name="senha">
+    <br/>
+	</b> 
+	<br/><input type="submit"value="Confirma"/>
 	</form>
 </body>
 </html>

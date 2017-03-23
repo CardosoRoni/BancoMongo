@@ -1,8 +1,6 @@
 package BancoServlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.Writer;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,25 +26,24 @@ public class CadastroServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-		throws ServletException, IOException {
-		//PrintWriter writer = response.getWriter();
+			throws ServletException, IOException {
+		// PrintWriter writer = response.getWriter();
 		String numeroConta = request.getParameter("numeroConta");
 		String nome = request.getParameter("nome");
 		String cpf = request.getParameter("cpf");
 		String renda = request.getParameter("renda");
 		String senha = request.getParameter("senha");
 
-		
-		
-		if(numeroConta!=null & nome!= null & cpf != null & renda != null & senha !=null) {
-		
-		//if (numeroConta.equals("") & nome.equals("") & cpf.equals("") & renda.equals("")) {
-			
+		// if(numeroConta!=null & nome!= null & cpf != null & renda != null &
+		// senha !=null) {
+
+		if (numeroConta.equals("") & nome.equals("") & cpf.equals("") & renda.equals("") & senha.equals("")){
+			response.getWriter().append("Preencha os campos");
 		} else {
 			MongoClient mongo = new MongoClient();// criando um clienteMongo
 			DB db = mongo.getDB("contas");// seleciona o banco no caso "contas"
 			ContaDAO contaDAO = new ContaDAOMongo(db);// o DAO onde gerencia as
-														// informaçoes 
+														// informaçoes
 
 			Cliente cliente = new Cliente();// cria um cliente normal
 			cliente.setNome(nome);
