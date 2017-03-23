@@ -3,6 +3,7 @@ package BancoServlet;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +18,7 @@ import BancoDAO.ContaDAO;
 import BancoDAO.ContaDAOMongo;
 import BancoModel.Conta;
 import BancoModel.Operacao;
+import BancoModel.tipoOperacao;
 
 
 
@@ -46,47 +48,52 @@ public class OperacaoServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String op = request.getParameter("op");
+		String operacao = request.getParameter("operacao");
 		String valor = request.getParameter("valor");
-		String conta = request.getSession().getAttribute("conta").toString();
+		String numConta = request.getParameter("conta");
 
 		MongoClient mongo = new MongoClient();
 		DB db = mongo.getDB("contas");
 		ContaDAO dao = new ContaDAOMongo(db);
-		// Encontra a contra que a pessoa está utilizando
+		
+	    Long conta = Long.valueOf(numConta);
 		Conta contaNum = new Conta();
 		contaNum = dao.getConta(conta);
-
-		SimpleDateFormat dt = new SimpleDateFormat("dd/MM/yyyy");
-		dt.format(new Date());
-
-		// auxiliar para calculo de saldo
-		Double saldo = 0.0;
-		// Registra a operação realizada
+		
+		Date data = new Date();
+		
+		
+		Double saldo= contaNum.getSaldo();
+		double oprValor= Double.valueOf(valor);
+		
 		Operacao opr = new Operacao();
 		opr.setValor(Double.valueOf(valor));
-		opr.setData(dt);
+		opr.setData(data);
 
-		if (op.equals("") || op == null) {
-			response.getWriter().append("Operação inválida! tente novamente");
-			response.sendRedirect("menu.jsp");
-		} else if (op.equals("credito")) {
-			// Utilizando o ENUM para definir como constante o nome da operação
+		if (operacao.equals("") || operacao == null) {
+		} else if (operacao.equalsIgnoreCase("C")) {
 			opr.setTipoOperacao(TipoOpr.CREDITO);
-			saldo += Double.valueOf(valor);
+			saldo += oprValor;
 
 			contaNum.setSaldo(saldo);
 			dao.update(contaNum);
-		} else if (op.equals("debito")) {
+		} else if (operacao.equalsIgnoreCase("D")) {
+		if(saldo<=oprValor){
+			
+		}else{ 
+			saldo -= oprValor;
+			contaNum.setSaldo(saldo);
 			opr.setTipoOperacao(TipoOpr.DEBITO);
-
-			saldo -= Double.valueOf(valor);
-			contaNum.setSaldo(saldo);
-			dao.update(contaNum);
 		}
+		}
+		
+		List<Operacao>contaList= contaNum.getOperacaoList();
+		contaList.add(opr);
+		contaNum.setOperacaoList(contaList);
+		dao.update(contaNum);
+		response.sendRedirect("telaInicial.jsp");
 
-		request.getSession().setAttribute("saldo", saldo);
-		response.sendRedirect("telaAcesso.jsp");
+		
 	}
 
 }

@@ -6,7 +6,7 @@ public class Cliente {
 	public Cliente() {
 		
 	}
-	public Cliente(Conta conta, String nome, Integer cpf, Double renda) {
+	public Cliente(Conta conta, String nome, String cpf, Double renda) {
 		super();
 		this.conta = conta;
 		this.nome = nome;
@@ -23,7 +23,7 @@ public class Cliente {
 	}
 
 	private String nome;
-	private Integer cpf;
+	private String cpf;
 	private Double renda;
 
 
@@ -35,11 +35,11 @@ public class Cliente {
 		this.nome = nome;
 	}
 
-	public Integer getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(Integer cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 

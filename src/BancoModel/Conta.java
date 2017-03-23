@@ -1,5 +1,7 @@
 package BancoModel;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class Conta {
 	
@@ -7,7 +9,15 @@ public class Conta {
 	private String senha;
 	private Cliente cliente;
 	private Double saldo;
-	
+	List<Operacao>operacaoList= new ArrayList<>();
+
+	public List<Operacao> getOperacaoList() {
+		return operacaoList;
+	}
+
+	public void setOperacaoList(List<Operacao> operacaoList) {
+		this.operacaoList = operacaoList;
+	}
 
 	public Conta(Integer numero, String senha, BancoModel.Cliente cliente, Double saldo) {
 		super();

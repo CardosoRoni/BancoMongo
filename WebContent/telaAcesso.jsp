@@ -7,7 +7,12 @@
 <title>Tela Acesso</title>
 </head>
 <body>
+
 <form action="OperacaoServlet" method="post">
+<%String conta = (String )request.getAttribute("conta"); 
+%>
+Numero da Conta: <input type="text"name="conta" value="<%=conta %>" readonly="readonly">
+<br/>
 <b>
 <select name="operacao" id="operacao">
 <option value="C">Credito

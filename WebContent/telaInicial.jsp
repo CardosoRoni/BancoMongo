@@ -7,22 +7,18 @@
 <title>Tela Inicial</title>
 </head>
 <body>
-<form action="MainBancoServlet" method="post">
+<form action="MainBancoServlet"method="post">
 <b>
-Entre com o numero da conta: <input type="text" name="conta"/>
+Entre com o numero da conta: <input type="text"name="conta"/>
 <br/>
 <br/>
-Digite sua senha: <input type="text" name="senha"/>
+Digite sua senha: <input type="text"name="senha"/>
 <br/>
-<br/><input type="submit" value="Entrar">
+<br/><input type="submit"value="Entrar">
 <br/>
 <br/>ou
 <a href="cadastro.jsp">Cadastre-se aqui</a>
 </b>
 </form>
-
-
-
-
 </body>
 </html>

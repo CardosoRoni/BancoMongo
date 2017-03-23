@@ -2,6 +2,7 @@ package BancoModel;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import BancoServlet.TipoOpr;
@@ -10,14 +11,14 @@ import BancoServlet.TipoOpr;
 
 public class Operacao {
 	
-	private SimpleDateFormat data;
+	private Date data;
 	private Double valor;
 	private TipoOpr tipoOperacao;
 	
-	public SimpleDateFormat getData() {
+	public Date getData() {
 		return data;
 	}
-	public void setData(SimpleDateFormat data) {
+	public void setData(Date data) {
 		this.data = data;
 	}
 	public Double getValor() {

@@ -31,11 +31,11 @@ public class ContaDAOMongo implements ContaDAO{
 
 	@Override
 	public void update(Conta conta) {
-		conta().update("{numero: #}", conta.getNumero());
+		conta().update("{numero: #}", conta.getNumero()).with(conta);
 	}
 
 	@Override
-	public Conta getConta(String conta) {
+	public Conta getConta(Long conta) {
 		return conta().findOne("{numero: #}", conta).as(Conta.class);
 }
 
