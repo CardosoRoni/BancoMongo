@@ -7,7 +7,7 @@ import com.mongodb.DB;
 
 import BancoModel.Conta;
 
-public class ContaDAOMongo implements ContaDAO {
+public class ContaDAOMongo implements ContaDAO {// obrigado a escrever os metodos da contaDAO
 
 	private final DB db;
 

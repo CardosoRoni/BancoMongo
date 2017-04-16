@@ -8,19 +8,6 @@
 </head>
 <body>
 
-<script type="text/javascript">
-		function validarDados() {
-			var f = document.cadastro;
-			if (f.numeroConta.value == "" && f.nome.value == ""
-					&& f.cpf.value == "" && f.renda.value == ""
-					&& f.senha.value == "") {
-				alert("Preencha os Campos");
-				return false;
-			}
-			return true;
-		}
-		}
-	</script>
 	<form action="CadastroServlet" method="post">
 	<b>
     <br/>Digite o número da sua conta: <input type="text"name="numeroConta"/>
